@@ -12,7 +12,7 @@ const Data = [
     { id: "3", address:"Surat Gujarat", title: "Get 10% off on any pizza", img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/20/dc/34/pizza-hut.jpg" },
     { id: "4", address:"Surat Gujarat", title: "la pino'z pizza Offer:buy 1 get 1 free", img: "https://content.jdmagicbox.com/comp/ahmedabad/c9/079pxx79.xx79.210621170215.d4c9/catalogue/la-pinoz-pizza-jodhpur-char-rasta-ahmedabad-pizza-outlets-0ep20vaomx.jpg" },
     { id: "5", address:"Surat Gujarat", title: "Woklee pizza", img: "https://pbs.twimg.com/media/FFuuI16VIAgkrdd.png" },
-    { id: "6", address:"Surat Gujarat", title: "Starbucks coffee", img: "https://cdn.inavateonthenet.net/images/li/105749-1.jpg" },
+    { id: "6", address:"Surat Gujarat", title: "Starbucks coffee", img: "https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/Cxx-d099aSENnzklzNZ8pTP5lUk=/1660x934/smart/filters:no_upscale()/cloudfront-us-east-1.images.arcpublishing.com/dmn/CC2WCCSINFCEDEYUN6Z2BGVA6M.jpg" },
     { id: "7", address:"Surat Gujarat", title: "Mcdonalds", img: "https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/2019-06/shutterstock_1413709856.jpg" },
     { id: "8", address:"Surat Gujarat", title: "Dairy don", img: "https://content3.jdmagicbox.com/comp/mumbai/26/022papp20081119iron1503326/catalogue/dairy-don-mumbai-1y0phpysk1.jpg" },
 ];
@@ -37,8 +37,8 @@ const Card = () => {
 
 
     return (
-        <View style={{ backgroundColor: "#fff", marginBottom: 65 }}>
-            <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'greeen', paddingLeft: 5,margin:8 }}>Card Demo</Text>
+        <View style={{ backgroundColor: "#fff", marginBottom: 10 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'greeen', paddingLeft: 5,margin:8 }}>Hot Deals</Text>
             <View>
                 <FlatList data={Data} renderItem={renderItem} />
             </View>

@@ -18,12 +18,6 @@ const Flatlist = () => {
         return (
                 <View style={{ flex: 1 }}>
                     <View style={styles.Grig}>
-                        {/* <Image
-                            style={styles.tinyLogo}
-                            source={{
-                                uri: 'https://reactnative.dev/img/tiny_logo.png',
-                            }}
-                        /> */}
                           <Image
                             style={styles.tinyLogo}
                             source={{
@@ -38,9 +32,9 @@ const Flatlist = () => {
     }
     return (
         <View>
-            <View style={{backgroundColor:"#FFFFFF" ,marginTop:10,marginBottom:10}}>
-            <Text style={{margin:5  ,fontWeight:"bold"}}>FlatList Header</Text>
-                <FlatList data={Data} renderItem={renderItem} horizontal showsHorizontalScrollIndicator={false} style={{ height: 90}} />
+            <View style={{backgroundColor:"#FFFFFF",marginBottom:10}}>
+            <Text style={{margin:6 ,marginLeft:10  ,fontWeight:"bold"}}>Explore deal near you</Text>
+                <FlatList data={Data} renderItem={renderItem} horizontal showsHorizontalScrollIndicator={false} style={{ height: 90 ,marginLeft:8 ,marginRight:8}} />
             </View>
         </View>
     );

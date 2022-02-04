@@ -3,13 +3,15 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Card from '../Components/Card';
 import Flatlist from '../Components/Flatlist';
+import Search from '../Components/Search';
 
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      {/* <Text>Home</Text> */}
           <View>
               <ScrollView>
+              <Search />
               <Flatlist />
               <Card />
               </ScrollView>
