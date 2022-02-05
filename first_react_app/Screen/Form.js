@@ -16,7 +16,7 @@ const Form = () => {
                     <TextInput style={styles.input} placeholder='Password' />
                     <TextInput style={styles.input} placeholder='Confirm Password' />
                     <View style={styles.button}>
-                        <Button style={styles.button1} title='Submit' />
+                        <Button style={styles.button1} title='Sign up' />
                     </View>
                 </View>
             </ScrollView>
@@ -28,7 +28,7 @@ export default Form;
 
 const styles = StyleSheet.create({
     input: {
-        borderWidth: 0.2,
+        borderWidth: 0.5,
         backgroundColor: "#fff",
         marginTop: height / 45,
         borderRadius: 2,

@@ -37,7 +37,7 @@ const Card = () => {
 
 
     return (
-        <View style={{ backgroundColor: "#fff", marginBottom: 10 }}>
+        <View style={{ backgroundColor: "#fff",paddingBottom:10, marginBottom: 10 }}>
             <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'greeen', paddingLeft: 5,margin:8 }}>Hot Deals</Text>
             <View>
                 <FlatList data={Data} renderItem={renderItem} />
