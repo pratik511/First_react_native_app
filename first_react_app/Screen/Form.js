@@ -8,7 +8,7 @@ const height = width / 0.7;
 const Form = () => {
     return (
         // <View style={{width ,height}}>
-            <ScrollView >
+            // <ScrollView >
                 <View style={styles.background}>
                     <TextInput style={[styles.input, styles.height]} placeholder='Name' />
                     <TextInput style={styles.input} keyboardType='email-address' placeholder='Email' />
@@ -19,7 +19,7 @@ const Form = () => {
                         <Button style={styles.button1} title='Sign up' />
                     </View>
                 </View>
-            </ScrollView>
+            // </ScrollView>
         // </View>
     );
 };
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         paddingLeft:10,
     },
     height: {
-        marginTop: height / 5,
+        marginTop: height / 7,
     },
     background: {
         // marginLeft:20,
@@ -49,8 +49,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginRight: width / 16,
         marginLeft: width / 16,
+        borderRadius:5,
     },
     button1: {
         fontWeight:'bold',
+        borderRadius:5,
     }
 });

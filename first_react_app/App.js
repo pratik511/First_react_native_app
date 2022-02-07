@@ -20,11 +20,18 @@ export default function App() {
   return (
     <NavigationContainer>
       { /* tabBarOptions={{ showLabel: false }} */}
-      <Tab.Navigator>
+      <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: 'skyblue',
+        activeBackgroundColor: '#FFF',
+        inactiveBackgroundColor: 'skyblue',
+        inactiveTintColor:  '#FFF',
+        showLabel: false,
+      }}>
         <Tab.Screen name="Home" component={Home} options={{ title: "My Home", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, headerRight: () => (<Icon size={24} color="black" name="notifications" style={{ right: 15 }} />), tabBarIcon: () => (<Icon name='home' size={25} />) , tabBarHideOnKeyboard: true }} />
         <Tab.Screen name="Nearloacation" component={Nearloacation} options={{ headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarIcon: () => (<Icon name='navigation' size={25} />) , tabBarHideOnKeyboard: true }} />
         <Tab.Screen name="Location" component={Location} options={{ headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarIcon: () => (<Icon name='place' size={25} />) }} />
-        <Tab.Screen name="Offter" component={Offter} options={{ headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarIcon: () => (<Icon name='star' size={25} />) }} />
+        <Tab.Screen name="Offter" component={Offter} options={{ headerStyle: { backgroundColor: "skyblue", height:0 }, tabBarIcon: () => (<Icon name='star' size={25} />) }} />
         <Tab.Screen name="Form" component={Form} options={{ title: "Profile", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' size={25} />) }} />
         <Tab.Screen name="Login" component={Login} options={{ title: "Login", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' size={25} />) }} />
       </Tab.Navigator>
