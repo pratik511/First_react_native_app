@@ -11,8 +11,8 @@ const Search = () => {
     return (
         <View style={styles.new}>
             <View style={styles.ser}>
-                <Icon name="search" size={25} style={styles.icon} />
-                <TextInput style={styles.search} placeholder="Search place near you" placeholderTextColor="skyblue" />
+                <Icon name="search" size={20} color={'black'} style={styles.icon} />
+                <TextInput style={styles.search} placeholder="Search place near you" placeholderTextColor="#3bbf82" />
             </View>
         </View>
     );
@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     },
     search: {
         flex: 1,
-        color: 'skyblue',
+        color: '#3bbf82',
         backgroundColor: '#fff',
         height,
-        marginLeft:15,
+        marginLeft:6,
         borderColor: 'black',
     },
     ser: {

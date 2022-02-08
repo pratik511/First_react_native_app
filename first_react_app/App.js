@@ -9,10 +9,23 @@ import Location from './Screen/Location';
 import Nearloacation from './Screen/Nearloacation';
 import Offter from './Screen/Offter';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon1 from 'react-native-vector-icons/Ionicons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './Screen/Login';
+import Flatlist from './Components/Flatlist';
 
 const { width } = Dimensions.get("window");
 const height = width / 0.5;
+
+const Neardeal = createNativeStackNavigator();
+
+const flatlist = () =>{
+  <Neardeal.Navigator>
+    <Neardeal.Screen name='BarGrill' component={<Flatlist />}  />
+  </Neardeal.Navigator>
+}
+
+
 
 const Tab = createBottomTabNavigator();
 
@@ -22,18 +35,20 @@ export default function App() {
       { /* tabBarOptions={{ showLabel: false }} */}
       <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: 'skyblue',
-        activeBackgroundColor: '#FFF',
-        inactiveBackgroundColor: 'skyblue',
+        // activeTintColor: 'green',
+        activeBackgroundColor: '#63c99a',
+        inactiveBackgroundColor: '#3bbf82',
         inactiveTintColor:  '#FFF',
         showLabel: false,
-      }}>
-        <Tab.Screen name="Home" component={Home} options={{ title: "My Home", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, headerRight: () => (<Icon size={24} color="black" name="notifications" style={{ right: 15 }} />), tabBarIcon: () => (<Icon name='home' size={25} />) , tabBarHideOnKeyboard: true }} />
-        <Tab.Screen name="Nearloacation" component={Nearloacation} options={{ headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarIcon: () => (<Icon name='navigation' size={25} />) , tabBarHideOnKeyboard: true }} />
-        <Tab.Screen name="Location" component={Location} options={{ headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarIcon: () => (<Icon name='place' size={25} />) }} />
-        <Tab.Screen name="Offter" component={Offter} options={{ headerStyle: { backgroundColor: "skyblue", height:0 }, tabBarIcon: () => (<Icon name='star' size={25} />) }} />
-        <Tab.Screen name="Form" component={Form} options={{ title: "Profile", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' size={25} />) }} />
-        <Tab.Screen name="Login" component={Login} options={{ title: "Login", headerStyle: { backgroundColor: "skyblue", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' size={25} />) }} />
+        tabBarStyle:{height:0}
+      }}
+      >
+        <Tab.Screen name="Home" component={Home} options={{ title: "My Home", headerStyle: { backgroundColor: "#3bbf82", height: height / 15 }, headerRight: () => (<Icon name="notifications" size={24} color="black" style={{ right: 15 }}/>), tabBarIcon: () => (<Icon name='home' color={'#fff'} size={25} />) , tabBarHideOnKeyboard: true }} />
+        <Tab.Screen name="Nearloacation" component={Nearloacation} options={{ headerStyle: { backgroundColor: "#3bbf82", height: height / 15 }, tabBarIcon: () => (<Icon name='navigation' color={'#fff'} size={25} />) , tabBarHideOnKeyboard: true }} />
+        <Tab.Screen name="Location" component={Location} options={{ headerStyle: { backgroundColor: "#3bbf82", height: height / 15 }, tabBarIcon: () => (<Icon1 name='pin-outline' color={'#fff'} size={25} />) }} />
+        <Tab.Screen name="Offter" component={Offter} options={{ headerStyle: { backgroundColor: "#3bbf82", height:0 }, tabBarIcon: () => (<Icon name='star' color={'#fff'} size={25} />) }} />
+        <Tab.Screen name="Form" component={Form} options={{ title: "Profile", headerStyle: { backgroundColor: "#3bbf82", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' color={'#fff'} size={25} />) }} />
+        <Tab.Screen name="Login" component={Login} options={{ title: "Login", headerStyle: { backgroundColor: "#3bbf82", height: height / 15 }, tabBarHideOnKeyboard: true, tabBarIcon: () => (<Icon name='person' color={'#fff'} size={25} />) }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

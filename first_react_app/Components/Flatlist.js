@@ -25,7 +25,7 @@ const Flatlist = () => {
                             }}
                         />
 
-                        <Text style={{ fontSize: 11 ,marginTop:3 }}>{item.name}</Text>
+                        <Text style={{ fontSize: 11 ,color:'black' ,fontWeight:'normal' ,marginTop:3 }}>{item.name}</Text>
                     </View>
                 </View>
         )
@@ -33,7 +33,7 @@ const Flatlist = () => {
     return (
         <View>
             <View style={{backgroundColor:"#FFFFFF",marginBottom:10}}>
-            <Text style={{margin:6 ,marginLeft:10  ,fontWeight:"bold"}}>Explore deal near you</Text>
+            <Text style={{margin:6 ,marginLeft:10 ,color:'black' ,fontWeight:"bold"}}>Explore deal near you</Text>
                 <FlatList data={Data} renderItem={renderItem} horizontal showsHorizontalScrollIndicator={false} style={{ height: 90 ,marginLeft:8 ,marginRight:8}} />
             </View>
         </View>
