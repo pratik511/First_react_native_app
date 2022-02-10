@@ -1,13 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Hotdealmenu from './Hotdealmenu';
+import ShareExperience from './ShareExperience';
 
 const Location = () => {
   return (
     <View>
       {/* <Text>Location</Text> */}
-      <Hotdealmenu />
+      <ScrollView>
+        <Hotdealmenu />
+        <ShareExperience />
+      </ScrollView>
     </View>
   );
 };

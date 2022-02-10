@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions, FlatList, Image, ScrollView, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, FlatList, Image, ScrollView, Button, Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const { width } = Dimensions.get('window');
@@ -35,6 +35,8 @@ const Offer = [
 
 const Hotdealmenu = () => {
 
+    const [model, setModel] = useState(false);
+
     const renderItem = ({ item }) => {
         return (
             <View style={{ paddingTop: 6, justifyContent: 'center', alignItems: 'center', height: heigh2 / 3, width: width / 6, marginLeft: 10, marginBottom: 10, backgroundColor: '#63c99a', borderRadius: 5 }}>
@@ -55,65 +57,128 @@ const Hotdealmenu = () => {
     }
     const offer = ({ item }) => {
         return (
-            <View style={{ width, height: height / 1.3, marginBottom:10 ,backgroundColor:"#fff"}}>
-                <Text style={{ marginLeft: 20, color: 'black', fontSize: 16,marginTop:10 }}>{item.title}</Text>
-                <Text style={{ marginLeft:15,marginRight:15,marginTop:5,marginBottom:5, fontSize: 13.5 ,color:'black' }}>{item.val}</Text>
-                <Text style={{ marginLeft: 25,marginBottom:7 ,color:'#63c99a' ,fontWeight:'bold' }}>Used {item.item} times</Text>
-                <View style={{width:width/1.15,marginLeft:25,marginRight:20}}>
-                    <Button title='Redeen Offer' />
+            <View style={{ width, height: height / 1.1, marginBottom: 10, backgroundColor: "#fff" }}>
+                <Text style={{ marginLeft: 20, color: 'black', fontSize: 16, marginTop: 10, marginBottom: 10 }}>{item.title}</Text>
+                <Text style={{ marginLeft: 15, marginRight: 15, marginTop: 5, marginBottom: 5, fontSize: 13.5, color: 'black' }}>{item.val}</Text>
+                <Text style={{ marginLeft: 25, marginBottom: 7, color: '#63c99a', fontWeight: 'bold' }}>Used {item.item} times</Text>
+                <View style={{ width: width / 1.07, marginLeft: 12, marginRight: 12, marginTop: 10 }}>
+                    <Button title='Redeem Offer' color={'#3bbf82'} onPress={() => setModel(true)} />
                 </View>
             </View>
         )
     }
 
     return (
-        <ScrollView>
-            <View>
-                <View style={{ backgroundColor: "#fff", width, height: heigh2 }}>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: 0, marginLeft: 0, marginRight: 10 }}>
-                        <View style={{ height: heigh1 }}>
-                            <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#3bbf82', marginLeft: 7, marginTop: 10 }}>Open Now</Text>
-                            <Text style={{ fontSize: 15, fontWeight: '800', color: 'black', marginLeft: 7 }}>Dominos Pizza Outlet</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 'normal', color: 'black', marginLeft: 7, marginTop: 2 }}><Icon name='pin-outline' size={14} />The great Texas street 44</Text>
+        <View>
+            <ScrollView>
+                <View style={styles.centerdView}>
+                    <Modal transparent={true}
+                        visible={model}
+                        onRequestClose={() => {
+                            alert("Modal has been closed.")
+                            setModel(!model);
+                        }}>
+                        <View style={styles.centerdView}>
+
+                            <View style={styles.modelView}>
+                                <View style={{ flex: 1, flexDirection: 'row', }}>
+                                    <View style={{flex:0.3, flexDirection: 'row',justifyContent:'flex-start'}}>
+                                        {/* <Text style={{}}>Hello</Text> */}
+                                        <Image style={{height:30,width:30}} source={{uri :'https://www.mystateline.com/wp-content/uploads/sites/17/2015/10/Domino27s_1444922267440_5187236_ver1.0.jpg'}} />
+                                    </View>
+                                    <View style={{flex:1, flexDirection: 'row',justifyContent:'center'}}>
+                                        <Text style={{fontSize:15 ,color:'black' ,fontWeight:'700'}}>Get 50% off on Pizza</Text>
+                                    </View>
+                                    <View style={{flex:0.3,flexDirection: 'row',justifyContent:'flex-end'}}>
+                                        <TouchableOpacity onPress={() => setModel(false)}><Icon name='close-outline' size={30} /></TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View style={{flex:1,justifyContent:'flex-start'}}>
+                                    <Text style={{fontSize:11}}>Buy any medium size pizz from Dominos and get 50% flat off. This offer is valid only for the first time users.</Text>
+                                </View>
+                                <View style={{flex:1,fontSize:10,paddingTop:15,paddingBottom:15,borderTopWidth:0.5,borderBottomWidth:0.5}}>
+                                    <Text style={{width:width/1.4 ,fontSize:13}}>Valid Till</Text>
+                                    <Text style={{color:"#3bbf82" ,fontSize:13}}>25 July, 2022</Text>
+                                </View>
+                                <View style={{borderRadius:80,borderWidth:1 ,height:120,width:120,marginTop:15 ,alignItems:'center',justifyContent:'center'}}>
+                                    <Text>Hold To Redeem</Text>
+                                </View>
+                            </View>
                         </View>
+                    </Modal>
+
+                </View>
+                <View>
+                    <View style={{ backgroundColor: "#fff", width, height: heigh2 }}>
+                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: 0, marginLeft: 0, marginRight: 10 }}>
+                            <View style={{ height: heigh1 }}>
+                                <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#3bbf82', marginLeft: 7, marginTop: 10 }}>Open Now</Text>
+                                <Text style={{ fontSize: 15, fontWeight: '800', color: 'black', marginLeft: 7 }}>Dominos Pizza Outlet</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 'normal', color: 'black', marginLeft: 7, marginTop: 2 }}><Icon name='pin-outline' size={14} />The great Texas street 44</Text>
+                            </View>
+                            <View>
+                                <TouchableOpacity style={{ marginTop: 10, borderRadius: 2, backgroundColor: '#3bbf82', borderWidth: 0, width: width / 5.5, height: 23 }}>
+                                    <Text style={{ textAlign: 'center', marginTop: 3.5, color: "white", fontSize: 12 }}>Add Status</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ marginTop: 14, marginLeft: 5, }}>
+                                    <Text style={{ fontSize: 10, color: 'black' }}><Icon name='map-sharp' color={'black'} size={16} />  0.76 mi</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{ borderBottomWidth: 0.5 }}></View>
                         <View>
-                            <TouchableOpacity style={{ marginTop: 10, borderRadius: 2, backgroundColor: '#3bbf82', borderWidth: 0, width: width / 5.5, height: 23 }}>
-                                <Text style={{ textAlign: 'center', marginTop: 3.5, color: "white", fontSize: 12 }}>Add Status</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ marginTop: 14, marginLeft: 5, }}>
-                                <Text style={{ fontSize: 10, color: 'black' }}><Icon name='map-sharp' color={'black'} size={16} />  0.76 mi</Text>
-                            </TouchableOpacity>
+                            <Text style={{ fontSize: 15, fontWeight: '700', color: 'black', marginLeft: 10, marginTop: 10, marginBottom: 10 }}>Business Info</Text>
+                            <FlatList data={data} horizontal renderItem={renderItem} />
                         </View>
                     </View>
-                    <View style={{ borderBottomWidth: 0.5 }}></View>
-                    <View>
-                        <Text style={{ fontSize: 15, fontWeight: '700', color: 'black', marginLeft: 10, marginTop: 10, marginBottom: 10 }}>Business Info</Text>
-                        <FlatList data={data} horizontal renderItem={renderItem} />
+                    {/* See All Experiences */}
+                    <View style={{ marginTop: 7, backgroundColor: '#fff', height: heigh2 / 1.2, paddingLeft: 10, paddingRight: 10 }}>
+                        <View style={{ flex: 1, display: 'flex', flexDirection: 'row', marginBottom: 10, justifyContent: 'space-between', marginTop: 10, paddingLeft: 10 }}>
+                            <Text style={{ color: 'black', fontSize: 14, fontWeight: '600' }}>See All Experiences</Text>
+                            <Text style={{ marginRight: 10 }}><Icon name='arrow-forward-outline' size={20} color={'black'} /></Text>
+                        </View>
+                        <FlatList data={Data} horizontal showsHorizontalScrollIndicator={false} renderItem={card} />
+                    </View>
+                    {/* Add a Image */}
+                    <View style={{ width, height: heigh1, backgroundColor: '#fff', marginTop: 7, paddingLeft: 15, borderLeftColor: '#3bbf82', borderLeftWidth: 3 }}>
+                        <Text style={{ color: "#3bbf82", marginTop: 5, fontSize: 12 }}>Add a Image</Text>
+                        <Text style={{ color: 'black', fontWeight: 'normal', fontSize: 14 }}>Share details of your experience at this place</Text>
+                        <Icon name='add-outline' color={'#3bbf82'} size={24} />
+                    </View>
+                    {/* offer */}
+                    <View style={{ marginTop: 7 }}>
+                        <FlatList data={Offer} renderItem={offer} />
                     </View>
                 </View>
-                {/* See All Experiences */}
-                <View style={{ marginTop: 7, backgroundColor: '#fff', height: heigh2 / 1.2, paddingLeft: 10, paddingRight: 10 }}>
-                    <View style={{ flex: 1, display: 'flex', flexDirection: 'row', marginBottom: 10, justifyContent: 'space-between', marginTop: 10, paddingLeft: 10 }}>
-                        <Text style={{ color: 'black', fontSize: 14, fontWeight: '600' }}>See All Experiences</Text>
-                        <Text style={{ marginRight: 10 }}><Icon name='arrow-forward-outline' size={20} color={'black'} /></Text>
-                    </View>
-                    <FlatList data={Data} horizontal showsHorizontalScrollIndicator={false} renderItem={card} />
-                </View>
-                {/* Add a Image */}
-                <View style={{ width, height: heigh1, backgroundColor: '#fff', marginTop: 7, paddingLeft: 15, borderLeftColor: '#3bbf82', borderLeftWidth: 3 }}>
-                    <Text style={{ color: "#3bbf82", marginTop: 5, fontSize: 12 }}>Add a Image</Text>
-                    <Text style={{ color: 'black', fontWeight: 'normal', fontSize: 14 }}>Share details of your experience at this place</Text>
-                    <Icon name='add-outline' color={'#3bbf82'} size={24} />
-                </View>
-                {/* offer */}
-                <View style={{ marginTop: 7,marginBottom:7}}>
-                    <FlatList data={Offer} renderItem={offer} />
-                </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </View>
     );
 };
 
 export default Hotdealmenu;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    centerdView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 20,
+    },
+    modelView: {
+        // margin: 20,
+        backgroundColor: "white",
+        borderRadius: 8,
+        padding: 10,
+        width: width/1.25,
+        height: width*0.85,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 20,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+})
